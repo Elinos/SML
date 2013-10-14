@@ -32,3 +32,8 @@ fun dates_in_months (l : (int*int*int) list, m : int list) = (* Task 5*)
     if null m
     then []
     else dates_in_months(l, tl m) @ dates_in_month(l, hd m)
+
+fun get_nth (l : string list, n : int) = (*Task 6*)
+    if n = 1 
+    then hd l 
+    else get_nth(tl l, n - 1)
