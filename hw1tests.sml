@@ -96,7 +96,18 @@ test("t4- 0 dates",
 
 test("t4- 1 date",
    assert_true([(5, 5, 5)] = 
-   			dates_in_month([(5, 5, 5)] , 5)));
+   			dates_in_month([(5, 5, 5)], 5)));
 
+test("t5- 3 dates",
+   assert_true([(5, 5, 5), (1, 2, 3), (1, 1, 1)] = 
+   			dates_in_months([(5, 5, 5), (1, 2, 3), (4, 4, 4), (1, 1, 1)], [1, 2, 5])));
+
+test("t5- 0 dates",
+   assert_true([] = 
+   			dates_in_months([(5, 5, 5), (1, 2, 3), (4, 4, 4), (1, 1, 1)], [6, 10, 7])));
+
+test("t5- 0 dates",
+   assert_true([] = 
+   			dates_in_months([], [])));
 
 run();
