@@ -14,3 +14,9 @@ fun number_in_month (l : (int*int*int) list, m : int) = (* Task 2*)
     	if #2 (hd l) = m          
         then 1 + number_in_month(tl l, m)
         else number_in_month(tl l, m)
+
+fun number_in_months (l : (int*int*int) list, m : int list) = (* Task 3*)
+    if null m
+    then 0
+    else number_in_month(l, hd m) + number_in_months(l, tl m)
+        
