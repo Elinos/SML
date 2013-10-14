@@ -62,4 +62,7 @@ fun what_month (day : int) = (*Task 9*)
         number_before_reaching_sum(day, months_as_days) + 1
     end
     
-        
+fun month_range (d1 : int, d2 :int) = (*Task 10*)
+       if d1 > d2  
+       then [] 
+       else what_month(d1) :: month_range(d1 + 1, d2) 
