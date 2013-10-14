@@ -146,4 +146,14 @@ test("t9 - 31st of January",
 test("t9 - 1st of December",
    assert_equals_int(12, what_month(335)));
 
+(*Tests Task 10*)
+test("t10 - 31 to 34",
+   assert_true([1,2,2,2] = month_range(31, 34)));
+
+test("t10 - 31 to 1",
+   assert_true([] = month_range(31, 1)));
+
+test("t10 - 31 to 31",
+   assert_true([1] = month_range(31, 31)));
+
 run();
