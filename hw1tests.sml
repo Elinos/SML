@@ -136,4 +136,14 @@ test("t8 - 5 elements",
 test("t8 - 0 elements",
    assert_equals_int(0, number_before_reaching_sum(3, [3, 1, 3])));
 
+(*Tests Task 9*)
+test("t9 - 5th of July",
+   assert_equals_int(7, what_month(186)));
+
+test("t9 - 31st of January",
+   assert_equals_int(1, what_month(31)));
+
+test("t9 - 1st of December",
+   assert_equals_int(12, what_month(335)));
+
 run();
