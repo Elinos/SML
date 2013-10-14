@@ -84,4 +84,19 @@ test("t3 - empty list - months",
    										, (1, 1, 1), (2, 2, 2)]
    										, [1, 2])));
 
+(*Tests Task 4*)
+
+test("t4- 2 dates",
+   assert_true([(1, 1, 1), (2, 1, 2)] = 
+   			dates_in_month([(1, 1, 1), (3, 3, 3), (2, 1, 2)] , 1)));
+
+test("t4- 0 dates",
+   assert_true([] = 
+   			dates_in_month([(1, 1, 1), (3, 3, 3), (2, 3, 2)] , 4)));
+
+test("t4- 1 date",
+   assert_true([(5, 5, 5)] = 
+   			dates_in_month([(5, 5, 5)] , 5)));
+
+
 run();
