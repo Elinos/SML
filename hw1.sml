@@ -38,14 +38,14 @@ fun get_nth (l : string list, n : int) = (*Task 6*)
     then hd l 
     else get_nth(tl l, n - 1)
 
-val months = 
-["January", "February", "March", "April", "May", "June", 
-"July", "August", "September", "October", "November", "December"];
-
 fun date_to_string (d : int*int*int) = (*Task 7*)
-    get_nth(months, #2 d) ^ " " ^ 
-    Int.toString(#3 d) ^ ", " ^ Int.toString(#1 d)
-
+    let
+        val months = ["January", "February", "March", "April", "May", "June", 
+            "July", "August", "September", "October", "November", "December"]
+    in
+        get_nth(months, #2 d) ^ " " ^ 
+        Int.toString(#3 d) ^ ", " ^ Int.toString(#1 d)
+    end
 
 fun number_before_reaching_sum (sum : int, list : int list) = (*Task 8*)
     if hd list >= sum
@@ -54,4 +54,12 @@ fun number_before_reaching_sum (sum : int, list : int list) = (*Task 8*)
         if hd list + hd (tl list) >= sum 
         then 1 
         else 1 + number_before_reaching_sum(sum - hd list, tl list)
+
+fun what_month (day : int) = (*Task 9*)
+    let
+        val months_as_days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    in
+        number_before_reaching_sum(day, months_as_days) + 1
+    end
+    
         
