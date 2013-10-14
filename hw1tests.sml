@@ -110,4 +110,10 @@ test("t5- 0 dates",
    assert_true([] = 
    			dates_in_months([], [])));
 
+test("t6 - 3rd element",
+   assert_equals_string("Ivan", get_nth(["Pesho", "Gosho", "Ivan"], 3)));
+
+test("t6 - 3rd element",
+   assert_equals_string("2", get_nth(["1", "2", "3", "4"], 2)));
+
 run();
