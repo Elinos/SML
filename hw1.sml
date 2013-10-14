@@ -31,7 +31,7 @@ fun dates_in_month(l : (int*int*int) list, m : int) = (*Task 4*)
 fun dates_in_months (l : (int*int*int) list, m : int list) = (* Task 5*)
     if null m
     then []
-    else dates_in_months(l, tl m) @ dates_in_month(l, hd m)
+    else dates_in_month(l, hd m) @ dates_in_months(l, tl m) 
 
 fun get_nth (l : string list, n : int) = (*Task 6*)
     if n = 1 
@@ -71,14 +71,14 @@ fun oldest (list : (int*int*int) list) = (*Task 11*)
     if null list 
     then NONE 
     else
-    let
-        fun result (l : (int*int*int) list)  = 
-                    if null (tl l)
-                    then hd l
-                    else
-                        if is_older(hd l, result(tl l))
+        let
+            fun result (l : (int*int*int) list)  = 
+                        if null (tl l)
                         then hd l
-                        else result(tl l)
-    in
-        SOME (result list)
-    end
+                        else
+                            if is_older(hd l, result(tl l))
+                            then hd l
+                            else result(tl l)
+        in
+            SOME (result list)
+        end
