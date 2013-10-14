@@ -116,4 +116,10 @@ test("t6 - 3rd element",
 test("t6 - 3rd element",
    assert_equals_string("2", get_nth(["1", "2", "3", "4"], 2)));
 
+test("t7 - January 20, 2013",
+   assert_equals_string("January 20, 2013", date_to_string(2013, 1, 20)));
+
+test("t7 - July 5, 1985",
+   assert_equals_string("July 5, 1985", date_to_string(1985, 07, 05)));
+
 run();
