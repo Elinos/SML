@@ -98,6 +98,8 @@ test("t4- 1 date",
    assert_true([(5, 5, 5)] = 
    			dates_in_month([(5, 5, 5)], 5)));
 
+(*Tests Task 5*)
+
 test("t5- 3 dates",
    assert_true([(5, 5, 5), (1, 2, 3), (1, 1, 1)] = 
    			dates_in_months([(5, 5, 5), (1, 2, 3), (4, 4, 4), (1, 1, 1)], [1, 2, 5])));
@@ -110,16 +112,28 @@ test("t5- 0 dates",
    assert_true([] = 
    			dates_in_months([], [])));
 
+(*Tests Task 6*)
 test("t6 - 3rd element",
    assert_equals_string("Ivan", get_nth(["Pesho", "Gosho", "Ivan"], 3)));
 
 test("t6 - 3rd element",
    assert_equals_string("2", get_nth(["1", "2", "3", "4"], 2)));
 
+(*Tests Task 7*)
 test("t7 - January 20, 2013",
    assert_equals_string("January 20, 2013", date_to_string(2013, 1, 20)));
 
 test("t7 - July 5, 1985",
    assert_equals_string("July 5, 1985", date_to_string(1985, 07, 05)));
+
+(*Tests Task 8*)
+test("t8 - 2 elements",
+   assert_equals_int(2, number_before_reaching_sum(3, [1, 1, 3])));
+
+test("t8 - 5 elements",
+   assert_equals_int(5, number_before_reaching_sum(20, [1, 1, 3, 5, 9, 1])));
+
+test("t8 - 0 elements",
+   assert_equals_int(0, number_before_reaching_sum(3, [3, 1, 3])));
 
 run();
