@@ -27,4 +27,8 @@ fun dates_in_month(l : (int*int*int) list, m : int) = (*Task 4*)
         if #2 (hd l) = m
         then hd l :: dates_in_month(tl l, m) 
         else dates_in_month(tl l, m)
-        
+
+fun dates_in_months (l : (int*int*int) list, m : int list) = (* Task 5*)
+    if null m
+    then []
+    else dates_in_months(l, tl m) @ dates_in_month(l, hd m)
