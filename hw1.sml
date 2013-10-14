@@ -66,3 +66,19 @@ fun month_range (d1 : int, d2 :int) = (*Task 10*)
        if d1 > d2  
        then [] 
        else what_month(d1) :: month_range(d1 + 1, d2) 
+
+fun oldest (list : (int*int*int) list) = (*Task 11*)
+    if null list 
+    then NONE 
+    else
+    let
+        fun result (l : (int*int*int) list)  = 
+                    if null (tl l)
+                    then hd l
+                    else
+                        if is_older(hd l, result(tl l))
+                        then hd l
+                        else result(tl l)
+    in
+        SOME (result list)
+    end
