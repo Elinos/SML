@@ -101,7 +101,7 @@ test("t4- 1 date",
 (*Tests Task 5*)
 
 test("t5- 3 dates",
-   assert_true([(5, 5, 5), (1, 2, 3), (1, 1, 1)] = 
+   assert_true([(1, 1, 1), (1, 2, 3), (5, 5, 5)] = 
    			dates_in_months([(5, 5, 5), (1, 2, 3), (4, 4, 4), (1, 1, 1)], [1, 2, 5])));
 
 test("t5- 0 dates",
