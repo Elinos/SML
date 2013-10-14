@@ -156,4 +156,14 @@ test("t10 - 31 to 1",
 test("t10 - 31 to 31",
    assert_true([1] = month_range(31, 31)));
 
+(*Tests Task 11*)
+test("t11 - 31.03.2011",
+   assert_true(SOME (2011,3,31) = oldest([(2012,2,28),(2011,3,31),(2011,4,28)])));
+
+test("t11 - NONE",
+   assert_true(NONE = oldest([])));
+
+test("t11 - 31.03.2011",
+   assert_true(SOME (1,1,1) = oldest([(2012,2,28),(1,1,2),(1,1,1)])));
+
 run();
