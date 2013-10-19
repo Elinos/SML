@@ -6,7 +6,7 @@ fun is_older (d1 :int*int*int, d2: int*int*int) = (* Task 1*)
          then #3 d1 < #3 d2             
          else false
     else false
-       
+
 fun number_in_month (l : (int*int*int) list, m : int) = (* Task 2*)
     if null l
     then 0
@@ -61,7 +61,7 @@ fun what_month (day : int) = (*Task 9*)
     in
         number_before_reaching_sum(day, months_as_days) + 1
     end
-    
+
 fun month_range (d1 : int, d2 :int) = (*Task 10*)
        if d1 > d2  
        then [] 
@@ -76,9 +76,13 @@ fun oldest (list : (int*int*int) list) = (*Task 11*)
                         if null (tl l)
                         then hd l
                         else
-                            if is_older(hd l, result(tl l))
-                            then hd l
-                            else result(tl l)
+                            let
+                                val rtl = result(tl l)
+                            in
+                                if is_older(hd l, rtl)
+                                then hd l
+                                else rtl
+                            end
         in
             SOME (result list)
         end
