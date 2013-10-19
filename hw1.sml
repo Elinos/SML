@@ -11,7 +11,7 @@ fun number_in_month (l : (int*int*int) list, m : int) = (* Task 2*)
     if null l
     then 0
     else
-    	if #2 (hd l) = m
+        if #2 (hd l) = m
         then 1 + number_in_month(tl l, m)
         else number_in_month(tl l, m)
 
@@ -63,26 +63,24 @@ fun what_month (day : int) = (*Task 9*)
     end
 
 fun month_range (d1 : int, d2 :int) = (*Task 10*)
-       if d1 > d2
-       then []
-       else what_month(d1) :: month_range(d1 + 1, d2)
+   if d1 > d2
+   then []
+   else what_month(d1) :: month_range(d1 + 1, d2)
 
 fun oldest (list : (int*int*int) list) = (*Task 11*)
     if null list
     then NONE
     else
-        let
-            fun result (l : (int*int*int) list)  =
-                        if null (tl l)
+        let fun result (l : (int*int*int) list)  =
+                if null (tl l)
+                then hd l
+                else
+                    let val rtl = result(tl l)
+                    in
+                        if is_older(hd l, rtl)
                         then hd l
-                        else
-                            let
-                                val rtl = result(tl l)
-                            in
-                                if is_older(hd l, rtl)
-                                then hd l
-                                else rtl
-                            end
+                        else rtl
+                    end
         in
             SOME (result list)
         end
