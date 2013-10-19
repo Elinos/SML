@@ -50,10 +50,7 @@ fun date_to_string (d : int*int*int) = (*Task 7*)
 fun number_before_reaching_sum (sum : int, list : int list) = (*Task 8*)
     if hd list >= sum
     then 0
-    else
-        if hd list + hd (tl list) >= sum
-        then 1
-        else 1 + number_before_reaching_sum(sum - hd list, tl list)
+    else 1 + number_before_reaching_sum(sum - hd list, tl list)
 
 fun what_month (day : int) = (*Task 9*)
     let
