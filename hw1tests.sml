@@ -87,29 +87,29 @@ test("t3 - empty list - months",
 (*Tests Task 4*)
 
 test("t4- 2 dates",
-   assert_true([(1, 1, 1), (2, 1, 2)] = 
+   assert_true([(1, 1, 1), (2, 1, 2)] =
    			dates_in_month([(1, 1, 1), (3, 3, 3), (2, 1, 2)] , 1)));
 
 test("t4- 0 dates",
-   assert_true([] = 
+   assert_true([] =
    			dates_in_month([(1, 1, 1), (3, 3, 3), (2, 3, 2)] , 4)));
 
 test("t4- 1 date",
-   assert_true([(5, 5, 5)] = 
+   assert_true([(5, 5, 5)] =
    			dates_in_month([(5, 5, 5)], 5)));
 
 (*Tests Task 5*)
 
 test("t5- 3 dates",
-   assert_true([(1, 1, 1), (1, 2, 3), (5, 5, 5)] = 
+   assert_true([(1, 1, 1), (1, 2, 3), (5, 5, 5)] =
    			dates_in_months([(5, 5, 5), (1, 2, 3), (4, 4, 4), (1, 1, 1)], [1, 2, 5])));
 
 test("t5- 0 dates",
-   assert_true([] = 
+   assert_true([] =
    			dates_in_months([(5, 5, 5), (1, 2, 3), (4, 4, 4), (1, 1, 1)], [6, 10, 7])));
 
 test("t5- 0 dates",
-   assert_true([] = 
+   assert_true([] =
    			dates_in_months([], [])));
 
 (*Tests Task 6*)
@@ -129,6 +129,9 @@ test("t7 - July 5, 1985",
 (*Tests Task 8*)
 test("t8 - 2 elements",
    assert_equals_int(2, number_before_reaching_sum(3, [1, 1, 3])));
+
+test("t8 - 1 element",
+   assert_equals_int(1, number_before_reaching_sum(2, [1, 1 , 4])));
 
 test("t8 - 5 elements",
    assert_equals_int(5, number_before_reaching_sum(20, [1, 1, 3, 5, 9, 1])));
