@@ -22,14 +22,14 @@ val test3_3 = get_substitutions1([["Fred","Fredrick"],["Jeff","Jeffrey"],["Geoff
 "Jeff") =  ["Jeffrey","Geoff","Jeffrey"]
 
 val test4_1 = similar_names([["Fred","Fredrick"],["Elizabeth","Betty"],["Freddie","Fred","F"]], {first="Fred", middle="W", last="Smith"}) =
-	    [{first="Fred", last="Smith", middle="W"}, {first="Fredrick", last="Smith", middle="W"},
-	     {first="Freddie", last="Smith", middle="W"}, {first="F", last="Smith", middle="W"}]
+      [{first="Fred", last="Smith", middle="W"}, {first="Fredrick", last="Smith", middle="W"},
+       {first="Freddie", last="Smith", middle="W"}, {first="F", last="Smith", middle="W"}]
 
 val test4_2 = similar_names([["Fredd","Fredrick"],["Elizabeth","Betty"],["Freddie","Fredd","F"]], {first="Fred", middle="W", last="Smith"}) =
-			[{first="Fred", last="Smith", middle="W"}]
+      [{first="Fred", last="Smith", middle="W"}]
 
 val test4_3 = similar_names([["Fred","Fredrick"],["Elizabeth","Betty"],["Freddie","Fred","F"]], {first="Elizabeth", middle="W", last="Smith"}) =
-	    [{first="Elizabeth", last="Smith", middle="W"}, {first="Betty", last="Smith", middle="W"}]
+      [{first="Elizabeth", last="Smith", middle="W"}, {first="Betty", last="Smith", middle="W"}]
 
 val test5_1 = card_color((Clubs, Num 2)) = Black
 val test5_2 = card_color((Spades, Num 5)) = Black
