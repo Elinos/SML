@@ -59,9 +59,14 @@ val test10_3 = score([(Hearts, King),(Hearts, Num 4)],10) = 6
 val test10_4 = score([],10) = 5
 
 
-(*val test11 = officiate([(Hearts, Num 2),(Clubs, Num 4)],[Draw], 15) = 6
+val test11_1 = officiate([(Hearts, Num 2),(Clubs, Num 4)],[Draw], 15) = 6
+val test11_2 = officiate([(Hearts, Num 2),(Spades, Ace)],[], 15) = 7
+val test11_3 = (officiate([(Hearts, Num 2),(Spades, Ace)],[Discard (Diamonds, Num 5)], 15) handle IllegalMove => 5) = 5
+val test11_4 = officiate([(Diamonds, King),(Diamonds, Ace)],[Draw], 1) = 13
+val test11_5 = officiate([(Diamonds, King),(Diamonds, Ace)],[Draw, Discard (Diamonds, King), Draw], 10) = 1
 
-val test12 = officiate([(Clubs,Ace),(Spades,Ace),(Clubs,Ace),(Spades,Ace)],
+
+(*val test12 = officiate([(Clubs,Ace),(Spades,Ace),(Clubs,Ace),(Spades,Ace)],
                        [Draw,Draw,Draw,Draw,Draw],
                        42)
              = 3
