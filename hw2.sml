@@ -33,7 +33,7 @@ fun get_substitutions2(lol, s) = (*Task 1 - c) *)
   in f(lol, [])
   end
 
-fun similar_names(los, fullname) =
+fun similar_names(los, fullname) = (*Task 1 - d) *)
   case fullname of
     {first = f, middle = m , last = l} => let fun subs lt =
                                           case lt of
@@ -71,16 +71,18 @@ fun remove_card(cs, c, e) =
   case cs of
     [] => []
    |h::t => if h = c
-            then case t of
-              _::[] => raise e
-              |_ => t
-            else h::remove_card(t, c, e)
+            then t
+            else let val rc = h::remove_card(t, c, e)
+                 in case rc of
+                   _::[] => raise e
+                  |_ => rc
+                 end
 
 fun all_same_color lc =
-case lc of
-[] => true
-| _::[] => true
-| head::(neck::rest) => (card_color(head) = card_color(neck) andalso all_same_color (neck::rest))
+  case lc of
+    [] => true
+    | _::[] => true
+    | head::(neck::rest) => (card_color(head) = card_color(neck) andalso all_same_color (neck::rest))
 
 fun sum_cards lc =
   let fun f(lc, acc) =
@@ -88,6 +90,17 @@ fun sum_cards lc =
     [] => acc
     |h::t => f(t, acc + card_value(h))
   in f(lc, 0)
+  end
+
+fun score (lc, goal) =
+  let val sum = sum_cards(lc)
+  in let val prs = if sum > goal
+                   then 3 * (sum - goal)
+                   else goal - sum
+     in if all_same_color(lc)
+        then prs div 2
+        else prs
+     end
   end
 
 
