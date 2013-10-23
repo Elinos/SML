@@ -69,7 +69,7 @@ fun card_value(suit, rank) =
 
 fun remove_card(cs, c, e) =
   case cs of
-    [] => []
+    [] => raise e
    |h::t => if h = c
             then t
             else let val rc = h::remove_card(t, c, e)
@@ -103,5 +103,20 @@ fun score (lc, goal) =
      end
   end
 
+fun officiate (cl, ml, goal) =
+  let fun state(cl, ml, goal, hc) =
+    case ml of
+      [] => score(hc, goal)
+     |hd::tl => case hd of
+               Discard c => state(cl, tl, goal, remove_card(hc, c, IllegalMove))
+              |Draw => case cl of
+                        [] => score(hc, goal)
+                       |h::t => let val sum = sum_cards(h::hc)
+                             in if sum > goal
+                                then score(h::hc, goal)
+                                else state(t, tl, goal, h::hc)
+                             end
+  in state(cl, ml, goal, [])
+  end
 
 ;
